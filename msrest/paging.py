@@ -49,7 +49,7 @@ class Paged(Iterator):
     _validation = {}  # type: Dict[str, Dict[str, Any]]
     _attribute_map = {}  # type: Dict[str, Dict[str, Any]]
 
-    def __init__(self, command, classes, raw_headers=None):
+    def __init__(self, command, classes, raw_headers=None, **kwargs):
         # type: (Callable[[str], requests.Response], Dict[str, Model], Dict[str, str]) -> None
         # Sets next_link, current_page, and _current_page_iter_index.
         self.reset()
@@ -57,6 +57,7 @@ class Paged(Iterator):
         self._get_next = command
         self._response = None  # type: Optional[requests.Response]
         self._raw_headers = raw_headers
+        self._method_name = kwargs.get('method', None)
 
     def __iter__(self):
         """Return 'self'."""
