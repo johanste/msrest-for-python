@@ -44,7 +44,7 @@ class Paged(Iterator):
     :param requests.Response response: server response object.
     :param callable command: Function to retrieve the next page of items.
     :param dict classes: A dictionary of class dependencies for
-     deserialization.
+    :param dict kwargs: A dictionary of keyword arguments
     """
     _validation = {}  # type: Dict[str, Dict[str, Any]]
     _attribute_map = {}  # type: Dict[str, Dict[str, Any]]
